@@ -32,7 +32,7 @@ contract BuyMeACoffee {
     }
 
     modifier onlyAllowed(address _allowed) {
-        require(isAllowed[_allowed], "Not allowed to withdraw");
+        require(isAllowed[_allowed] || _allowed == owner, "Not allowed to withdraw");
         _;
     }
 

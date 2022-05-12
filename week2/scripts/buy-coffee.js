@@ -58,7 +58,8 @@ async function main() {
   await printBalances(addresses);
 
   // Withdraw
-  await buyMeACoffee.connect(owner).withdrawTips();
+  await buyMeACoffee.connect(owner).allowWithdrawing(tipper.address);
+  await buyMeACoffee.connect(tipper).withdrawTips();
 
   // Check balances after withdrawal.
   console.log("== withdrawTips ==");
